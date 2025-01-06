@@ -46,14 +46,13 @@ export const GraphComponent = ({
     return getDataArray(aggregateDataSet, selectedPath);
   }, [aggregateDataSet, selectedPath]);
 
-  // Generate an array of colors for each bar
   const barColors = useMemo(() => {
     return aggregateDataSet.map((entry) =>
       new Date(entry.date).getTime() === date.getTime()
         ? standoutColor
         : generalColor
     );
-  }, [date]);
+  }, [date, aggregateDataSet]);
 
   const chartData = {
     labels: dates,
