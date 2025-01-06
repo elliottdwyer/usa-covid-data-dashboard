@@ -227,3 +227,14 @@ export function formatDate(date) {
 
   return `${month} ${getOrdinal(day)}, ${year}`;
 }
+
+export function getTypeOfTotal(metric: Metric) {
+  switch (metric) {
+    case Metric.CASES:
+    case Metric.DEATHS:
+    case Metric.TESTING:
+      return 'Cumulative';
+    default:
+      return 'Current';
+  }
+}

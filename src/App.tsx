@@ -8,6 +8,7 @@ import {
   ENDDATE,
   pathMap,
   getNestedValue,
+  getTypeOfTotal,
 } from './utils.ts';
 import { InputSidebar, StatsCard, GraphComponent } from './Components';
 
@@ -58,12 +59,7 @@ function App() {
     metricPaths[Interval.SEVEN_DAY] ?? []
   );
 
-  const totalLabel =
-    metric === Metric.TESTING ||
-    metric === Metric.CASES ||
-    metric === Metric.DEATHS
-      ? 'Cumulative'
-      : 'Current';
+  const totalLabel = getTypeOfTotal(metric);
 
   return (
     <div className="App">
@@ -82,7 +78,7 @@ function App() {
               <StatsCard
                 value={total?.toLocaleString()}
                 label={`${totalLabel} ${metric}`}
-                icon="🌎"
+                icon="🇺🇸"
               />
               <StatsCard
                 value={`${(Number(populationPercent) || 0).toFixed(2)}%`}
@@ -92,7 +88,7 @@ function App() {
               <StatsCard
                 value={newCases?.toLocaleString()}
                 label="Change from Prior Day"
-                icon="⏱"
+                icon="🗓"
               />
               <StatsCard
                 value={`${sevenDayAverage}%`}

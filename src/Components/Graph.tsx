@@ -1,6 +1,6 @@
 import React from 'react';
 import { Bar } from 'react-chartjs-2';
-import { Interval, getDateFromIndex } from '../utils.ts';
+import { Interval, getDateFromIndex, getTypeOfTotal } from '../utils.ts';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -75,19 +75,24 @@ export const GraphComponent = ({
           generateLabels: function (chart) {
             return [
               {
-                text: `${interval} ${metric}`,
+                text: `${
+                  interval === Interval.TOTAL
+                    ? getTypeOfTotal(metric)
+                    : interval
+                } ${metric}`,
                 fillStyle: generalColor,
                 lineWidth: 0,
               },
               {
-                text: `${interval} ${metric} on ${date.toLocaleDateString(
-                  'en-US',
-                  {
-                    month: 'short',
-                    day: 'numeric',
-                    year: 'numeric',
-                  }
-                )}`,
+                text: `${
+                  interval === Interval.TOTAL
+                    ? getTypeOfTotal(metric)
+                    : interval
+                } ${metric} on ${date.toLocaleDateString('en-US', {
+                  month: 'short',
+                  day: 'numeric',
+                  year: 'numeric',
+                })}`,
                 fillStyle: standoutColor,
                 lineWidth: 0,
               },
@@ -107,7 +112,7 @@ export const GraphComponent = ({
             return date.getDate() === 1
               ? date.toLocaleDateString('en-US', {
                   month: 'short',
-                  year: '2-digit',
+                  year: 'numeric',
                 })
               : '';
           },
@@ -129,7 +134,9 @@ export const GraphComponent = ({
   return (
     <div className="component-cards">
       <div className="component-subheading">
-        {`${interval} COVID-19 ${metric}:`}
+        {`${
+          interval === Interval.TOTAL ? getTypeOfTotal(metric) : interval
+        } COVID-19 ${metric}:`}
       </div>
       <div className="graph-container">
         <Bar data={chartData} options={options} />
