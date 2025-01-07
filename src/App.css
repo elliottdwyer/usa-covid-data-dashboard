@@ -11,12 +11,15 @@
   --space-3: 32px;
 }
 
+html, body {
+  background-color: var(--app-background-color);
+}
+
 .App {
   text-align: center;
 }
 
 .App-header {
-  background-color: var(--app-background-color);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -50,11 +53,20 @@
   border-radius: 8px;
 }
 
+.date-display {
+  text-align: left;
+  font-size: 0.9em;
+  font-weight: bold;
+  margin-bottom: var(--space-3);
+  font-family: 'Roboto', sans-serif;
+  font-style: italic;
+}
+
 .component-heading {
   text-align: left;
   font-size: 1.2em;
   font-weight: bold;
-  margin-bottom: var(--space-3);
+  margin-bottom: var(--space-2);
   font-family: 'Roboto', sans-serif;
 }
 
@@ -95,6 +107,7 @@
 
 .pill:hover {
   cursor: pointer;
+  background-color: var(--item-selected-color);
 }
 
 .pill.selected {

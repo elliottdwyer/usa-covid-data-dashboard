@@ -1,6 +1,6 @@
 import React from 'react';
 import { Pill } from './Pill.tsx';
-import { Metric, Interval, STARTDATE, ENDDATE } from '../utils.ts';
+import { Metric, Interval, STARTDATE, ENDDATE, formatDate } from '../utils.ts';
 
 export const InputSidebar = ({
   date,
@@ -13,6 +13,7 @@ export const InputSidebar = ({
   return (
     <div className="component-cards">
       <div className="component-heading">{'COVID-19 Data Dashboard 🦠'} </div>
+      <div className="date-display">{formatDate(date)} </div>
       <div className="component-subheading"> Select a date: </div>
       <div className="component-body">
         <input
