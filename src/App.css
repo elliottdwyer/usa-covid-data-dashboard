@@ -96,6 +96,15 @@ html, body {
   height: 180px; 
 }
 
+.pill-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: var(--space-2);
+}
+
 .pill {
   background-color: var(--item-color);
   border-radius: 20px;
@@ -121,4 +130,33 @@ html, body {
   align-items: center;
   justify-content: center;
   height: 450px;
+}
+
+.component-cards.stats {
+  position: relative;
+}
+
+.stats-icon {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.stats-value {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 2.3rem;
+  font-weight: bold;
+}
+
+.stats-label {
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%) translateY(50%);
+  font-size: 1rem;
+  width: 90%;
 }

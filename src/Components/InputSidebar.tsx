@@ -27,16 +27,7 @@ export const InputSidebar = ({
       </div>
       <div className="component-subheading"> Select a metric: </div>
       <div className="component-body">
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'left',
-            alignItems: 'start',
-            gap: '8px',
-            marginBottom: '16px',
-          }}
-        >
+        <div className="pill-container">
           {Object.values(Metric).map((metricItem) => (
             <Pill
               key={metricItem}
@@ -49,16 +40,7 @@ export const InputSidebar = ({
       </div>
       <div className="component-subheading"> Select an interval: </div>
       <div className="component-body">
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'left',
-            alignItems: 'start',
-            gap: '8px',
-            marginBottom: '10px',
-          }}
-        >
+        <div className="pill-container">
           {Object.values(Interval).map((intervalItem) => {
             let label = intervalItem as string;
             if (intervalItem === Interval.TOTAL) {
