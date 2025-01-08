@@ -87,7 +87,6 @@ html, body {
 .stats-container {
   display: flex;
   justify-content: space-between; 
-  flex-wrap: wrap;
 }
 
 .stats-container > * {
